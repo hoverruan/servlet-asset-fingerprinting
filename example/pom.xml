@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.hoverruan</groupId>
+	<artifactId>servlet-asset-fingerprinting-example</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>servlet-asset-fingerprinting-example Maven Webapp</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.github.hoverruan</groupId>
+			<artifactId>servlet-asset-fingerprinting</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>servlet-asset-fingerprinting-example</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>8.1.4.v20120524</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>
