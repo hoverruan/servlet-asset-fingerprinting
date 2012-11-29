@@ -4,6 +4,7 @@ import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.io.IOUtils;
 
 import javax.servlet.jsp.PageContext;
+import java.io.InputStream;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.util.HashMap;
@@ -39,10 +40,17 @@ public class ResourceFunctions {
 
                         URL resource = pageContext.getServletContext().getResource(path);
                         if (resource != null) {
-                            byte[] content = IOUtils.toByteArray(resource.openStream());
-                            MessageDigest md5 = MessageDigest.getInstance("MD5");
-                            hashToken = Hex.encodeHexString(md5.digest(content));
-                            hashTokenCache.put(path, hashToken);
+                            InputStream inputStream = null;
+
+                            try {
+                                inputStream = resource.openStream();
+                                byte[] content = IOUtils.toByteArray(inputStream);
+                                MessageDigest md5 = MessageDigest.getInstance("MD5");
+                                hashToken = Hex.encodeHexString(md5.digest(content));
+                                hashTokenCache.put(path, hashToken);
+                            } finally {
+                                IOUtils.closeQuietly(inputStream);
+                            }
                         }
                     } finally {
                         writeLock.unlock();
