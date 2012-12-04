@@ -32,7 +32,7 @@
 
   <scm>
     <url>https://github.com/hoverruan/servlet-asset-fingerprinting</url>
-    <connection>scm:git:https://github.com/hoverruan/servlet-asset-fingerprinting.git</connection>
+    <connection>scm:git:git@github.com:hoverruan/servlet-asset-fingerprinting.git</connection>
   </scm>
 
 	<properties>
