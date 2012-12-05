@@ -40,4 +40,9 @@ Add fingerprinting supports for static resource in java servlet
 
 ### Example
 
-You can check out example project to getting more details.
+You can check out the example project to getting more details.
+
+How to run the example:
+
+	cd example
+	mvn jetty:run
